@@ -64,6 +64,10 @@
 
 .product__buy {}
 
+.product.added {
+  background-color: #8cff8c;
+}
+
 .cart-overlay {
   position: fixed;
   top: 0;
