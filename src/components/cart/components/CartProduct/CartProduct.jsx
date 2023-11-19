@@ -1,19 +1,19 @@
 import { Img } from '../../../commons';
 import styles from './CartProduct.module.css';
 
-export const CartProduct = () => {
+export const CartProduct = ({ item }) => {
   const { product } = styles;
 
   return (
-    <div className={ product }>
-      <span className="number">1</span>
+    <div className={`${product} ${styles.product}`}>
+      <span className="number">{item.quantity}</span>
       
-      <Img imgName="p1.webp"/>
+      <Img imgName={item.img} />
 
-      <p className="productName">Product 1</p>
-      <span className="qty">1</span>
-      <span className="price">1000</span>
-      <span className="cost">1000</span>
+      <p className="productName">{item.title}</p>
+      <span className="qty">{item.quantity}</span>
+      <span className="price">{item.price.toLocaleString()}</span>
+      <span className="cost">{(item.price * item.quantity).toLocaleString()}</span>
     </div>
   );
 };
