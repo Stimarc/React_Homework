@@ -1,0 +1,22 @@
+.topRow{
+    margin: 15px;
+}
+  
+  .number {
+    width: -20px;
+  }
+  .img {
+    width: 100px;
+  }
+  .name {
+    width: 200px;
+  }
+  .qty {
+    width: 90px;
+  }
+  .price {
+    width: 80px;
+  }
+  .cost {
+    width: 40px;
+  }

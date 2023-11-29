@@ -4,11 +4,14 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
+  padding: 50px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
 }
 
-.header {}
+.header {
+  display: flex;
+  font-weight: bold;
+}
 
 .main {
   margin: 10px 0;
@@ -37,7 +40,7 @@
   cursor: pointer;
 }
 .red {
-  
+  margin-left: 350px;
   background-color: red;
   color: white;
 }

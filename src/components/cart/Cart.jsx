@@ -1,8 +1,10 @@
 import { CartProduct } from './components';
 import styles from './Cart.module.css';
+import commonStyles from './components/CartCommon.module.css'
 
 export const Cart = ({ cart, closeCart }) => {
   const { cart: cartStyle, header, main, footer, closeBtn } = styles;
+  const { number, img, name, qty, price, cost } = commonStyles;
 
   const calculateTotal = () => {
     if (cart.length === 0) {
@@ -23,7 +25,14 @@ export const Cart = ({ cart, closeCart }) => {
   return (
     <div className={`${cartStyle} ${styles.cart}`}>
       <div className={header}>
-        <h4>Products</h4>
+      <div>
+      <span className={`${number} `}>№</span>
+      <span className={`${img} `}>Фото</span>
+      <span className={`${name}`}>Назва</span>
+      <span className={`${qty}`}>К-сть</span>
+      <span className={`${price}`}>Ціна</span>
+      <span className={`${cost}`}>Вартість</span>
+    </div>
         <button className={`${closeBtn} ${styles.red}`} onClick={closeCart}>
           &#10006;
         </button>
