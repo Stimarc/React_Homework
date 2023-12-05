@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Products } from './components/Products';
 import { CartBtn, Logo } from './components/commons';
 import { Cart } from './components/cart';
+import { getCartObj,getCartProductQty } from './utils';
 
 const App = () => {
   const products = [
@@ -10,37 +11,39 @@ const App = () => {
     { id: 3, title: 'Samsung', price: 9876, img: 'p3.webp' },
   ];
 
-  const [cart, setCart] = useState([]);
-  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [openCart, setOpenCart] = useState(false);
+  const [cart, setCart] = useState({});
+  const [countCartItems, setCountCartItems] = useState(0);
 
-  const addToCart = (product) => {
-    setCart([...cart, { ...product, quantity: 1, price: parseFloat(product.price)  }]);
-  };
+  const addToCart = (id) => {
+    const product = products.find(prod => prod.id === id);
+    let cartObj = !cart[id]
+      ? getCartObj(id, cart, 0, product)
+      : getCartObj(id, cart, cart[id].qty, product);
 
-  const openCart = () => {
-    setIsCartOpen(true);
-  };
-
-  const closeCart = () => {
-    setIsCartOpen(false);
-  };
+    setCountCartItems(getCartProductQty(cartObj));
+    setCart(cartObj);
+  }
 
   return (
     <div className="container">
+
       <div className="header">
         <Logo />
-        <CartBtn productsCount={cart.length} onClick={openCart} />
+        <CartBtn productsCount={ countCartItems } onClick={ () => setOpenCart(prev => !prev) }/>
       </div>
 
       <div className="main">
-        <Products data={products} addToCartHandler={addToCart} />
-      </div>
+      
+        <Products data={ products } addToCartHandler={ addToCart }/>
 
+      </div>
       <div className="footer"></div>
 
-      {isCartOpen && <Cart cart={cart} closeCart={closeCart} />}
+      { openCart && <Cart data={ cart }/> }
+
     </div>
   );
-};
+}
 
 export default App;

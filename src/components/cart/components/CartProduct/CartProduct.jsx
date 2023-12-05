@@ -1,24 +1,24 @@
 import { Img } from '../../../commons';
-import styles from './CartProduct.module.css';
+import s from './CartProduct.module.css';
+import cs from './../../components/CartCommon.module.css';
 
-export const CartProduct = ({item}) => {
-  const { product,number,name,qty,price,cost } = styles;
+export const CartProduct = ({ qty, product, cost, index }) => {
+  const { img, price, title } = product;
 
   return (
-    
-    <div className={`${product}`}>
-      <span className={`${number}`}>{item.quantity}</span>
+    <div className={ s.product }>
+      <span className={`${s.number} ${cs.mr1} ${cs.number}`}>{ index + 1 }</span>
       
-      <Img imgName={item.img} />
+      <Img imgName={ img } className={ `${cs.mr1} ${cs.img}` }/>
 
-      <p className={`${name}`}>{item.title}</p>
-      <div className={`${qty}`}>
-      <span>+</span>
-      <span>1</span>
-      <span>-</span>
+      <p className={`${s.name} ${cs.mr1} ${cs.name}`}>{ title }</p>
+      <div className={`${s.qty} ${cs.mr1} ${cs.qty}`}>
+        <span>+</span>
+        <span>{ qty }</span>
+        <span>-</span>
       </div>
-      <span className={`${price}`}>{item.price}</span>
-      <span className={cost}>{(item.price * item.quantity)}</span>
+      <span className={`${s.price} ${cs.mr1} ${cs.price}`}>{ price }</span>
+      <span className={`${s.cost} ${cs.cost}`}>{ cost }</span>
     </div>
   );
 };

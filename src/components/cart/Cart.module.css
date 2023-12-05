@@ -6,6 +6,8 @@
   background: rgba(255, 255, 255, 0.9);
   padding: 50px;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .header {
@@ -31,16 +33,4 @@
 }
 .footer:last-child {
   font-weight: bold;
-}
-
-.close-btn {
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-.red {
-  margin-left: 350px;
-  background-color: red;
-  color: white;
 }

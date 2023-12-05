@@ -1,55 +1,54 @@
-import { CartProduct } from './components';
 import styles from './Cart.module.css';
-import commonStyles from './components/CartCommon.module.css'
+import { CartHeader, CartProduct } from './components';
 
-export const Cart = ({ cart, closeCart }) => {
-  const { cart: cartStyle, header, main, footer, closeBtn } = styles;
-  const { number, img, name, qty, price, cost } = commonStyles;
+export const Cart = ({ data }) => {
+  const { cart, header, main, footer } = styles;
+  const products = Object.values(data);
 
-  const calculateTotal = () => {
-    if (cart.length === 0) {
-      return 0;
-    }
-
-    return cart.reduce((total, product) => total + product.price * product.quantity, 0);
-  };
-
-  const calculateTotalQuantity = () => {
-    if (cart.length === 0) {
-      return 0;
-    }
-
-    return cart.reduce((total, product) => total + product.quantity, 0);
-  };
+  console.log(products);
 
   return (
-    <div className={`${cartStyle} ${styles.cart}`}>
-      <div className={header}>
-      <div>
-      <span className={`${number} `}>№</span>
-      <span className={`${img} `}>Фото</span>
-      <span className={`${name}`}>Назва</span>
-      <span className={`${qty}`}>К-сть</span>
-      <span className={`${price}`}>Ціна</span>
-      <span className={`${cost}`}>Вартість</span>
-    </div>
-        <button className={`${closeBtn} ${styles.red}`} onClick={closeCart}>
-          &#10006;
-        </button>
+    <div className={ cart }>
+      
+      <CartHeader className={ header } />
+
+      <div className={ main }>
+
+        {
+          products.map(({ qty, product, cost }, index) => (
+            <CartProduct 
+              key={ product.id }
+              qty={ qty } 
+              product={ product }
+              cost={ cost }
+              index={ index }
+            />
+          ))
+        }
+        
+
       </div>
 
-      <div className={`${main} ${styles.cartItems}`}>
-        {cart.map((item) => (
-          <CartProduct key={item.id} item={item} />
-        ))}
-      </div>
-
-      <div className={footer}>
-        <span>Total Quantity:</span>
-        <span>{calculateTotalQuantity()}</span>
-        <span>Total Cost:</span>
-        <span>{calculateTotal()}</span>
+      <div className={ footer }>
+        <span>total:</span>
+        <span>20000</span>
       </div>
     </div>
   );
 };
+
+// const calculateTotal = () => {
+  //   if (products.length === 0) {
+  //     return 0;
+  //   }
+
+  //   return cart.reduce((total, product) => total + product.price * product.quantity, 0);
+  // };
+
+  // const calculateTotalQuantity = () => {
+  //   if (cart.length === 0) {
+  //     return 0;
+  //   }
+
+  //   return cart.reduce((total, product) => total + product.quantity, 0);
+  // };

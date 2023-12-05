@@ -4,8 +4,8 @@ import s from './Product.module.css';
 export const Product = ({ data, addToCartHandler }) => {
   const { id, title, price, img } = data;
 
-  const clickHandler = () => {
-    addToCartHandler(data);
+  const clickHandler = (id) => {
+    addToCartHandler(id);
   }
 
   return (
