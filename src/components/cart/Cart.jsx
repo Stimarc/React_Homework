@@ -1,54 +1,50 @@
 import styles from './Cart.module.css';
 import { CartHeader, CartProduct } from './components';
 
-export const Cart = ({ data }) => {
-  const { cart, header, main, footer } = styles;
+export const Cart = ({ data, onIncrease, onDecrease, onRemove, }) => {
+  const { cart, header, main, footer, } = styles;
   const products = Object.values(data);
 
-  console.log(products);
+  const calculateTotal = () => {
+    if (products.length === 0) {
+      return 0;
+    }
+
+    return products.reduce((total, { qty, product }) => total + product.price * qty, 0);
+  };
+
+  const calculateTotalQuantity = () => {
+    if (products.length === 0) {
+      return 0;
+    }
+
+    return products.reduce((total, { qty }) => total + qty, 0);
+  };
 
   return (
-    <div className={ cart }>
-      
-      <CartHeader className={ header } />
+    <div className={cart}>
+      <CartHeader className={header} />
 
-      <div className={ main }>
-
-        {
-          products.map(({ qty, product, cost }, index) => (
-            <CartProduct 
-              key={ product.id }
-              qty={ qty } 
-              product={ product }
-              cost={ cost }
-              index={ index }
-            />
-          ))
-        }
-        
-
+      <div className={main}>
+        {products.map(({ qty, product, cost }, index) => (
+          <CartProduct
+            key={product.id}
+            qty={qty}
+            product={product}
+            cost={cost}
+            index={index}
+            onIncrease={onIncrease}
+            onDecrease={onDecrease}
+            onRemove={onRemove}
+          />
+        ))}
       </div>
 
-      <div className={ footer }>
-        <span>total:</span>
-        <span>20000</span>
+      <div className={footer}>
+        <span>Total quntity: {calculateTotalQuantity()}</span>
+        <span>Total: {calculateTotal()}</span>
       </div>
     </div>
   );
 };
 
-// const calculateTotal = () => {
-  //   if (products.length === 0) {
-  //     return 0;
-  //   }
-
-  //   return cart.reduce((total, product) => total + product.price * product.quantity, 0);
-  // };
-
-  // const calculateTotalQuantity = () => {
-  //   if (cart.length === 0) {
-  //     return 0;
-  //   }
-
-  //   return cart.reduce((total, product) => total + product.quantity, 0);
-  // };
