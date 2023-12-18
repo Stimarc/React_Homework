@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { Products } from './components/Products';
 import { CartBtn, Logo } from './components/commons';
 import { Cart } from './components/cart';
@@ -17,7 +18,7 @@ const App = () => {
   const [totalCost, setTotalCost] = useState(0);
 
   const addToCart = (id) => {
-    const product = products.find(prod => prod.id === id);
+    const product = products.find((prod) => prod.id === id);
     let cartObj = !cart[id]
       ? getCartObj(id, cart, 0, product)
       : getCartObj(id, cart, cart[id].qty, product);
@@ -58,28 +59,41 @@ const App = () => {
   }, [cart]);
 
   return (
-    <div className="container">
-      <div className="header">
-        <Logo />
-        <CartBtn productsCount={countCartItems} onClick={() => setOpenCart(prev => !prev)} />
+    <Router>
+      <div className="container">
+        <div className="header">
+          <Link to="/">
+            <Logo />
+          </Link>
+          <Link to="/cart">
+            <CartBtn productsCount={countCartItems} onClick={() => setOpenCart((prev) => !prev)} />
+          </Link>
+        </div>
+
+        <Routes>
+          <Route
+            path="/"
+            element={<Products data={products} addToCartHandler={addToCart} />}
+          />
+          <Route
+            path="/cart"
+            element={
+              openCart && (
+                <Cart
+                  data={cart}
+                  totalCost={totalCost}
+                  onRemove={removeFromCart}
+                  onIncrease={increaseQty}
+                  onDecrease={decreaseQty}
+                />
+              )
+            }
+          />
+        </Routes>
+
+        <div className="footer"></div>
       </div>
-
-      <div className="main">
-        <Products data={products} addToCartHandler={addToCart} />
-      </div>
-
-      <div className="footer"></div>
-
-      {openCart && (
-        <Cart
-          data={cart}
-          totalCost={totalCost}
-          onRemove={removeFromCart}
-          onIncrease={increaseQty}
-          onDecrease={decreaseQty}
-        />
-      )}
-    </div>
+    </Router>
   );
 };
 
