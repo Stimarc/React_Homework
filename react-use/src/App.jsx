@@ -1,8 +1,15 @@
+import React from 'react';
+import { Form } from './components/Form';
+import { ThemeProvider } from './components/ThemeContext';
+
 const App = () => {
-  return(
-    <div className="App">
-      <h1>Context</h1>
-    </div>
+  return (
+    <ThemeProvider>
+      <div className="App">
+        <h1>Theme</h1>
+        <Form />
+      </div>
+    </ThemeProvider>
   );
 }
 
