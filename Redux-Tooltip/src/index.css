@@ -32,14 +32,17 @@ body {
 /*TODOS*/
 
 .todos-container {
-  width: 300px;
+  max-width: 400px;
   margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .todos-header {
-  color: #1e0b0b;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
 .todos-list {
@@ -56,6 +59,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .todo-text {
@@ -71,17 +75,48 @@ body {
   border-radius: 3px;
 }
 
+.add-todo-container{
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-input{
+  padding: 13px;
+  margin-bottom: 3px;
+  border-radius: 5px;
+}
+
+.todo-button-add {
+  margin: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #00cb00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
 /*USERS*/
 
+
 .user-list-container {
-  width: 300px;
+  max-width: 400px;
   margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .user-list-header {
-  color: #333;
-  font-size: 20px;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
 }
 
 .user-list {
@@ -102,10 +137,10 @@ body {
 }
 
 .user-name {
-  font-weight: bold;
+  flex-grow: 1;
 }
 
-.delete-user-button {
+.delete-button {
   padding: 8px 12px;
   cursor: pointer;
   background-color: #e74c3c;
@@ -114,19 +149,29 @@ body {
   border-radius: 3px;
 }
 
-.user-details {
-  margin-top: 20px;
-  padding: 20px;
-  background-color: #f5f5f5;
+.add-user-container {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.user-details h3 {
-  color: #333;
-  margin-bottom: 10px;
+.user-input{
+  padding: 13px;
+  margin-bottom: 3px;
+  border-radius: 5px;
 }
 
-.user-details p {
-  margin: 5px 0;
+.user-button-add {
+  margin: 5px;
+  padding: 8px 12px;
+  cursor: pointer;
+  background-color: #00cb00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
 }
