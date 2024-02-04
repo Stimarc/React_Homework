@@ -1,0 +1,9 @@
+{
+    "products": [
+      { "id": 1, "category": "phones", "name": "Phone Model 1", "price": 500 },
+      { "id": 2, "category": "laptops", "name": "Laptop Model 1", "price": 900 },
+      { "id": 3, "category": "tv", "name": "TV Model 1", "price": 800 }
+    ],
+    "users": []
+  }
+  

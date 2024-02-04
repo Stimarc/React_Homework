@@ -1,0 +1,12 @@
+.logo {
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #43f83c;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.logo img {
+  width: 50px;
+}

@@ -1,0 +1,36 @@
+.cart {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 50px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, .3);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.header {
+  display: flex;
+  font-weight: bold;
+}
+
+.main {
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid silver;
+  border-bottom: 1px solid silver;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.footer:first-child {
+  text-transform: uppercase;
+  margin-right: 10px;
+}
+.footer:last-child {
+  font-weight: bold;
+}
