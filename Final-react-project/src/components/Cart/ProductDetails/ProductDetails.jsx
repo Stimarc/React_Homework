@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
-import { Img } from '../../../commons';
-import s from './CartProduct.module.css';
-import cs from './../../components/CartCommon.module.css';
+import { Img } from '../../Img';
+import s from './ProductDetails.module.css';
+import cs from './../CartCommon.module.css';
 
-export const CartProduct = ({ qty, product, cost, index, onIncrease, onDecrease, onRemove }) => {
+export const ProductDetails = ({ qty, product, cost, index, onIncrease, onDecrease, onRemove }) => {
   const { id, img, price, title } = product;
   const [showInfo, setShowInfo] = useState(false);
 
   const getProductInfo = () => {
     switch (title) {
-      case 'Ergo':
+      case 'TCL':
         return (
           <div className={s.productInfo}>
-            <p>Screen diagonal: 65"</p>
+            <p>Screen diagonal: 98"</p>
             <p>Smart TV support: with Smart TV</p>
             <p>Permission: 3840x2160</p>
-            <p>TV type: QLED/Quantum Dot</p>
-            <p>Wireless capabilities: Bluetooth, WIFI</p>
-          </div>
-        );
-      case 'Nokia':
-        return (
-          <div className={s.productInfo}>
-            <p>Screen diagonal: 55"</p>
-            <p>Smart TV support: with Smart TV</p>
-            <p>Permission: 3840x2160</p>
-            <p>TV type: QLED/Quantum Dot</p>
+            <p>TV type: QLED/Quantum Dot 120Гц</p>
             <p>Wireless capabilities: Bluetooth, WIFI</p>
           </div>
         );
       case 'Samsung':
         return (
           <div className={s.productInfo}>
-            <p>Series: Q6</p>
-            <p>Screen diagonal: 55"</p>
+            <p>Screen diagonal: 98"</p>
             <p>Smart TV support: with Smart TV</p>
             <p>Permission: 3840x2160</p>
-            <p>TV type: QLED/Quantum Dot</p>
+            <p>TV type: QLED/Quantum Dot 100Гц</p>
+            <p>Wireless capabilities: Bluetooth, WIFI</p>
+          </div>
+        );
+      case 'Sony':
+        return (
+          <div className={s.productInfo}>
+            <p>Series: XR-77A80J</p>
+            <p>Screen diagonal: 77"</p>
+            <p>Smart TV support: with Smart TV</p>
+            <p>Permission: 3840x2160</p>
+            <p>TV type: QLED/Quantum Dot 120 Гц (CMR)</p>
             <p>Wireless capabilities: Bluetooth, WIFI</p>
           </div>
         );
@@ -44,6 +44,8 @@ export const CartProduct = ({ qty, product, cost, index, onIncrease, onDecrease,
         return null;
     }
   };
+
+  
 
   return (
     <div

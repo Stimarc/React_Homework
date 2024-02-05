@@ -1,5 +1,6 @@
+import { CartHeader } from './CartHeader';
+import { ProductDetails as CartProduct } from './ProductDetails';
 import styles from './Cart.module.css';
-import { CartHeader, CartProduct } from './components';
 
 export const Cart = ({ data, onIncrease, onDecrease, onRemove, }) => {
   const { cart, header, main, footer, } = styles;

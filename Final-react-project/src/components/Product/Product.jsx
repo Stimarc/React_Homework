@@ -1,4 +1,4 @@
-import { Img } from '../commons';
+import { Img } from '../Img';
 import s from './Product.module.css';
 
 export const Product = ({ data, addToCartHandler }) => {
