@@ -8,7 +8,6 @@ import { CartBtn } from './components/CartBtn';
 import { Logo } from './components/Logo';
 import { Cart } from './components/Cart';
 import { getCartObj, getCartProductQty } from './utils';
-import navigationStyles from './Navigation.module.css';
 
 
 const App = () => {
@@ -21,7 +20,7 @@ const App = () => {
     { id: 6, title: 'Lenovo IdeaPad Gaming 3', price: 31999, img: 'n3.webp',category: 'laptops' },
     { id: 7, title: 'Samsung Galaxy S24 Ultra 12/512GB', price: 57999, img: 's1.webp',category: 'phones' },
     { id: 8, title: 'Apple iPhone 15 Pro Max 256GB Black', price: 59999, img: 's2.webp',category: 'phones' },
-    { id: 9, title: 'Google Pixel Fold 12/256GB', price: 99670, img: 's3.webp',category: 'phones' },
+    { id: 9, title: 'Google Pixel Fold 12/256GB Porcelain', price: 99670, img: 's3.webp',category: 'phones' },
 
   ];
 
@@ -74,17 +73,12 @@ const App = () => {
   return (
     <Router>
         <div className="container">
-            <div className="header">
-                <Link to="/">
+            <div className="header">   <Link to="/">
                     <Logo />
                 </Link>
-                <nav className={navigationStyles}>
-                    <Link to="/phones">Phones</Link>
-                    <Link to="/laptops">Laptops</Link>
-                    <Link to="/tvs">TVs</Link>
-                </nav>
+                
                 <Link to="/cart">
-                    <CartBtn productsCount={countCartItems} onClick={() => setOpenCart((prev) => !prev)} />
+                    <CartBtn productsCount={countCartItems} onClick={() =>  setOpenCart((prev) => !prev)} />
                 </Link>
             </div>
 
@@ -109,6 +103,7 @@ const App = () => {
                     path="/cart"
                     element={
                         <Cart
+                            key={openCart}
                             data={cart}
                             totalCost={totalCost}
                             onRemove={removeFromCart}

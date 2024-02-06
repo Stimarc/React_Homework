@@ -11,6 +11,7 @@ export const Product = ({ data, addToCartHandler }) => {
   return (
     <div className={ s.product }>
       
+      
       <Img imgName={ img } className={ s.thumbnail }/>
 
       <h4 className={ s.title }>{ title }</h4>

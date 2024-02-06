@@ -85,6 +85,7 @@
   .removeBtn::after {
     transform: translate(-50%, -50%) rotate(45deg);
   }
+
   
   .price {
     margin-right: 10px; 
