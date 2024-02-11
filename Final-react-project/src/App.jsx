@@ -114,7 +114,11 @@ const App = () => {
                 />
             </Routes>
 
-            <div className="footer"></div>
+            <div className="footer">
+        <h6>
+            Copyright: &copy; StimShop by my Product Company&trade; - Kyiv, 2024
+        </h6>
+            </div>
         </div>
     </Router>
 );
