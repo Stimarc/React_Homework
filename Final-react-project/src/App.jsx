@@ -115,8 +115,8 @@ const App = () => {
             </Routes>
 
             <div className="footer">
-        <h6>
-            Copyright: &copy; StimShop by my Product Company&trade; - Kyiv, 2024
+            <h6>
+            Copyright: &copy;StimShop&trade; - Kyiv, 2024
         </h6>
             </div>
         </div>
