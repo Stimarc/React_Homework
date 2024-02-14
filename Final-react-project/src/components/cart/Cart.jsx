@@ -1,9 +1,11 @@
 import { CartHeader } from './CartHeader';
 import { ProductDetails as CartProduct } from './ProductDetails';
 import styles from './Cart.module.css';
+import { useState } from 'react';
 
 export const Cart = ({ data, onIncrease, onDecrease, onRemove, }) => {
   const { cart, header, main, footercart, } = styles;
+  const [isCartOpen, setIsCartOpen] = useState(true);
   const products = Object.values(data);
 
   const calculateTotal = () => {
@@ -22,9 +24,13 @@ export const Cart = ({ data, onIncrease, onDecrease, onRemove, }) => {
     return products.reduce((total, { qty }) => total + qty, 0);
   };
 
+  if (!isCartOpen) {
+    return null;
+  }
+
   return (
     <div className={cart}>
-      <CartHeader className={header} />
+      <CartHeader className={header} setIsCartOpen={setIsCartOpen} />
 
       <div className={main}>
         {products.map(({ qty, product, cost }, index) => (

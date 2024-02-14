@@ -4,6 +4,19 @@ import cs from './../CartCommon.module.css';
 
 export const ProductDetails = ({ qty, product, cost, index, onIncrease, onDecrease, onRemove }) => {
   const { id, img, price, title } = product;
+  const buttonTrashStyle = {
+    position: 'absolute', 
+    top: '45px', 
+    right: '-40px', 
+    background: 'transparent',
+    border: 'none',
+    cursor: 'pointer',
+    padding: 0,
+  };
+  const trashImageStyle = {
+    width: '30px',
+    height: '30px',
+  }
 
   return (
     <div
@@ -27,8 +40,14 @@ export const ProductDetails = ({ qty, product, cost, index, onIncrease, onDecrea
       <span className={`${s.price} ${cs.mr1} ${cs.price}`}>{price}</span>
       <span className={`${s.cost} ${cs.cost}`}>{cost}</span>
 
-      <button className={`${s.removeBtn} ${cs.removeBtn}`} onClick={() => onRemove(id)}>
+      <button 
+      style={buttonTrashStyle} 
+      onClick={() => onRemove(id)}>
       
+      <img 
+      src="./img/products/trash-bin.png" 
+      alt="trash"
+      style={trashImageStyle} />
       </button>
       
       

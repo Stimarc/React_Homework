@@ -1,7 +1,21 @@
+import React from 'react';
 import commonStyles from './../CartCommon.module.css';
 
-export const CartHeader = ({ ...props }) => {
+export const CartHeader = ({ setIsCartOpen, ...props }) => {
     const { number, img, name, qty, price, cost, mr1 } = commonStyles;
+    const buttonCloseStyle = {
+        position: 'absolute', 
+        top: '-32px', 
+        right: '-32px', 
+        background: 'transparent',
+        border: 'none',
+        cursor: 'pointer',
+        padding: 0,
+    };
+    const closeImageStyle = {
+        width: '30px',
+        height: '30px',
+    };
 
     return (
         <div {...props}>
@@ -11,9 +25,16 @@ export const CartHeader = ({ ...props }) => {
             <span className={`${qty} ${mr1}`}>К-сть</span>
             <span className={`${price} ${mr1}`}>Ціна</span>
             <span className={`${cost}`}>Вартість</span>
-            <button><img width="30px" src="./img/products/close.png" alt="close" /></button>
+            <button 
+                style={buttonCloseStyle} 
+                onClick={() => setIsCartOpen(false)}
+            >
+                <img 
+                    src="./img/products/close.png" 
+                    alt="close" 
+                    style={closeImageStyle}
+                />
+            </button>
         </div>
-       
     );
 };
-
