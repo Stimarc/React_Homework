@@ -3,7 +3,7 @@ import { ProductDetails as CartProduct } from './ProductDetails';
 import styles from './Cart.module.css';
 
 export const Cart = ({ data, onIncrease, onDecrease, onRemove, }) => {
-  const { cart, header, main, footer, } = styles;
+  const { cart, header, main, footercart, } = styles;
   const products = Object.values(data);
 
   const calculateTotal = () => {
@@ -41,7 +41,7 @@ export const Cart = ({ data, onIncrease, onDecrease, onRemove, }) => {
         ))}
       </div>
 
-      <div className={footer}>
+      <div className={footercart}>
         <span>Total quntity: {calculateTotalQuantity()}</span>
         <span>Total: {calculateTotal()}</span>
       </div>

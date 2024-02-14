@@ -11,7 +11,9 @@ export const CartHeader = ({ ...props }) => {
             <span className={`${qty} ${mr1}`}>К-сть</span>
             <span className={`${price} ${mr1}`}>Ціна</span>
             <span className={`${cost}`}>Вартість</span>
+            <button><img width="30px" src="./img/products/close.png" alt="close" /></button>
         </div>
+       
     );
 };
 

@@ -22,15 +22,15 @@
     border-bottom: 1px solid silver;
   }
   
-  .footer {
+  .footercart {
     display: flex;
     align-items: center;
     justify-content: flex-end;
   }
-  .footer:first-child {
+  .footercart:first-child {
     text-transform: uppercase;
     margin-right: 10px;
   }
-  .footer:last-child {
+  .footercart:last-child {
     font-weight: bold;
   }

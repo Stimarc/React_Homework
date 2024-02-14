@@ -30,6 +30,8 @@ export const ProductDetails = ({ qty, product, cost, index, onIncrease, onDecrea
       <button className={`${s.removeBtn} ${cs.removeBtn}`} onClick={() => onRemove(id)}>
       
       </button>
+      
+      
 
     </div>
   );
