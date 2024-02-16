@@ -9,9 +9,9 @@ export const Products = ({ data, addToCartHandler }) => {
     <div className={products}>
       <h3 className={styles.title}>Products</h3>
       <nav className={nav}>
-        <NavLink to="/phones" activeClassName={styles.activeLink}>Phones</NavLink>
-        <NavLink to="/laptops" activeClassName={styles.activeLink}>Laptops</NavLink>
-        <NavLink to="/tvs" activeClassName={styles.activeLink}>TVs</NavLink>
+        <NavLink to="/phones" activeclassname={styles.activeLink}>Phones</NavLink>
+        <NavLink to="/laptops" activeclassname={styles.activeLink}>Laptops</NavLink>
+        <NavLink to="/tvs" activeclassname={styles.activeLink}>TVs</NavLink>
       </nav>
 
       <div className={content}>

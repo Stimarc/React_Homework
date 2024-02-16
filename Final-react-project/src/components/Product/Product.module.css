@@ -52,6 +52,21 @@
   color: #4CAF50; 
 }
 
+.detailBtn {
+padding: 10px 10px;
+background: #0056b3;
+color: white;
+border: none;
+border-radius: 4px;
+transition: background-color 03.s ease ;
+}
+
+.detailBtn:hover {
+background: #044794;
+cursor: pointer;
+}
+
+
 .buyBtn {
   padding: 10px 20px;
   background: #4CAF50;

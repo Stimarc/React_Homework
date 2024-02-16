@@ -10,7 +10,6 @@ import { Cart } from './components/Cart';
 import { AuthModal } from './components/AuthModal/AuthModal';
 import { getCartObj, getCartProductQty } from './utils';
 
-
 const App = () => {
   const products = [
     { id: 1, title: 'TCL 98C805', price: 285179, img: 'p1.webp', category: 'tvs' },
