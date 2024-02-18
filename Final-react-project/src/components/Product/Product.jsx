@@ -2,15 +2,13 @@ import { Img } from '../Img';
 import s from './Product.module.css';
 
 export const Product = ({ data, addToCartHandler }) => {
-  const { id, title, price, img, detailUrl } = data; // Припускаю, що detailUrl - це URL для деталей продукту
+  const { id, title, price, img} = data;
 
   const clickHandler = (id) => {
     addToCartHandler(id);
   };
 
-  const openDetailTab = (url) => {
-    window.open(url, '_blank'); // Відкриває нову вкладку
-  };
+  
 
   return (
     <div className={ s.product }>
@@ -25,12 +23,7 @@ export const Product = ({ data, addToCartHandler }) => {
         >
           Купити
         </button>
-        <button
-          onClick={() => openDetailTab(detailUrl)}
-          className={ s.detailBtn } 
-        >
-          Деталі
-        </button>
+       
       </div>
     </div>
   );
